@@ -170,6 +170,9 @@ class Movie(models.Model):
         default=False
     )
 
+    def __str__(self):
+        return self.title
+
     class Meta:
         verbose_name = 'Филм'
         verbose_name_plural = 'Филми'
