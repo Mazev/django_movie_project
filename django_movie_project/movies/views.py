@@ -9,7 +9,7 @@ class MoviesView(View):
 
     def get(self, request):
         movies = Movie.objects.filter(draft=False)
-        return render(request, 'movies/movies.html', {'movie_list': movies})
+        return render(request, 'movies/movies_list.html', {'movie_list': movies})
 
 
 class MovieDetailView(View):
