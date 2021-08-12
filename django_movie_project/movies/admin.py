@@ -1,7 +1,6 @@
 from django.contrib import admin
 
 from .models import Category, Genre, Movie, MovieShot, Actor, Rating, RatingStar, Reviews
-# from django_movie_project.movies.models import Category, Genre, Movie, MovieShot, Actor, Rating, RatingStar, Reviews
 
 admin.site.register(Category)
 admin.site.register(Genre)
