@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
 
 from .models import Movie
+from django_movie_project.movies.forms import ReviewForm
 
 
 class MoviesView(View):
@@ -18,3 +19,17 @@ class MovieDetailView(View):
     def get(self, request, slug):
         movie = Movie.objects.get(url=slug)
         return render(request, 'movies/movie_detail.html', {'movie': movie})
+
+
+class AddReview(View):
+    # Коментари към филма
+
+    def post(self, request, pk, ):
+        form = ReviewForm(request.POST)
+        movie = Movie.objects.get(id=pk)
+        if form.is_valid():
+            form = form.save(commit=False)
+            form.movie = movie
+            form.save()
+
+        return redirect(movie.absolute_url())
