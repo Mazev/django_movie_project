@@ -409,9 +409,9 @@
                         <h3 class="shop-sing editContent" style="outline: none; cursor: inherit;">
                             За филма {{ movie.title }}</h3>
                         <p>
-                            <img src="bundles/images/about.jpg" class="img-fluid" alt="">
-                            <img src="bundles/images/admin.jpg" class="img-fluid" alt="">
-                            <img src="bundles/images/d1.jpg" class="img-fluid" alt="">
+                           {% for image in movie.movieshot_set.all %}
+                                <img src="{{ image.image.url }}" class=" img-movie-shots " alt="{{ image.description }}">
+                            {% endfor %}
                         </p>
                         <p class="editContent" style="outline: none; cursor: inherit;">
                             {{ movie.description }}
@@ -434,7 +434,7 @@
                             <div class="contact-single">
                                 <h3 class="editContent" style="outline: none; cursor: inherit;">
                                     <span class="sub-tittle editContent"
-                                          style="outline: none; cursor: inherit;">02</span>Добави коментар</h3>
+                                          style="outline: none; cursor: inherit;">01</span>Добави коментар</h3>
                                 <form action="#" method="get" class="mt-4">
                                     <div class="form-group editContent"
                                          style="outline: none; cursor: inherit;">
