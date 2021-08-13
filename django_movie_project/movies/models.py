@@ -195,7 +195,7 @@ class MovieShot(models.Model):
 
     image = models.ImageField(
         'Изображение',
-        upload_to='movie_shots'
+        upload_to='movie_shots/'
     )
 
     movie = models.ForeignKey(

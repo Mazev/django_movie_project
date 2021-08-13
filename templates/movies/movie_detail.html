@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 {%  load static %}
-<html lang="ru">
 <head>
     <!-- //Meta tag Keywords -->
     <title>Clack Website Template</title>
@@ -32,7 +31,7 @@
                 <nav class="py-4">
                     <div id="logo">
                         <h1><a href="index.html" class="editContent"
-                               style="outline: none; outline-offset: -2px; cursor: inherit; color: rgb(255, 255, 255); font-size: 40px; background-color: rgba(0, 0, 0, 0); font-family: &quot;Source Sans Pro&quot;, sans-serif;">Django_Movie_Project</a>
+                               style="outline: none; outline-offset: -2px; cursor: inherit; color: rgb(150, 200, 200); font-size: 40px; background-color: rgba(0, 0, 0, 0); font-family: &quot;Source Sans Pro&quot;, sans-serif;">Django_Movie_Project</a>
                         </h1>
                     </div>
 
@@ -65,15 +64,6 @@
     </div>
     <!--//main-content-->
     <!---->
-    <ol class="breadcrumb editContent">
-        <li class="breadcrumb-item">
-            <a href="index.html" class="editContent"
-               style="outline: none; cursor: inherit;">Home</a>
-        </li>
-        <li class="breadcrumb-item active editContent" style="outline: none; cursor: inherit;">
-            Single
-        </li>
-    </ol>
     <!---->
     <!-- banner -->
     <section class="ab-info-main py-md-5 py-4 editContent"
@@ -86,7 +76,7 @@
 
                     <div class="search-bar w3layouts-newsletter">
                         <h3 class="sear-head editContent" style="outline: none; cursor: inherit;">
-                            Поиск фильма</h3>
+                            Търсачка за филми</h3>
                         <form action="#" method="post" class="d-flex editContent"
                               style="outline: none; cursor: inherit;">
                             <input type="search" placeholder="Тук напиши името..." name="search"
@@ -104,7 +94,7 @@
                             <li class="editContent" style="outline: none; cursor: inherit;">
                                 <input type="checkbox" class="checked">
                                 <span class="span editContent"
-                                      style="outline: none; cursor: inherit;">Аниме</span>
+                                      style="outline: none; cursor: inherit;">Анимация</span>
                             </li>
                             <li class="editContent" style="outline: none; cursor: inherit;">
                                 <input type="checkbox" class="checked">
@@ -257,21 +247,20 @@
                                 <img src="bundles/images/s4.jpg" class="img-fluid" alt="">
                             </div>
                             <div class="img-deal1 col-md-4">
-                                <h3 class="editContent">Рэмбо: Последняя кровь</h3>
+                                <h3 class="editContent">33333333333333</h3>
                                 <a href="shop-single.html" class="editContent"
                                    style="outline: none; cursor: inherit;"></a>
                             </div>
 
                         </div>
-                        <div class="special-sec1 row mt-3 editContent"
+                                <div class="special-sec1 row mt-3 editContent"
                              style="outline: none; cursor: inherit;">
                             <div class="img-deals col-md-4">
-                                <img src="bundles/images/s2.jpg" class="img-fluid" alt=""
+                                <img src="bundles/images/s1.jpg" class="img-fluid" alt=""
                                      style="outline: none; cursor: inherit;">
                             </div>
                             <div class="img-deal1 col-md-8">
-                                <h3 class="editContent" style="outline: none; cursor: inherit;">
-                                    </h3>
+                                <h3 class="editContent" style="outline: none; cursor: inherit;">22222222222</h3>
                                 <a href="shop-single.html" class="editContent"
                                    style="outline: none; cursor: inherit;"></a>
                             </div>
@@ -284,8 +273,7 @@
                                      style="outline: none; cursor: inherit;">
                             </div>
                             <div class="img-deal1 col-md-8">
-                                <h3 class="editContent" style="outline: none; cursor: inherit;">К
-                                    звездам</h3>
+                                <h3 class="editContent" style="outline: none; cursor: inherit;">44444444444444</h3>
                                 <a href="shop-single.html" class="editContent"
                                    style="outline: none; cursor: inherit;"></a>
                             </div>
@@ -298,8 +286,7 @@
                                      style="outline: none; cursor: inherit;">
                             </div>
                             <div class="img-deal1 col-md-8">
-                                <h3 class="editContent" style="outline: none; cursor: inherit;">
-                                    Терминатор: Темные судьбы</h3>
+                                <h3 class="editContent" style="outline: none; cursor: inherit;">555555555555</h3>
                                 <a href="shop-single.html" class="editContent"
                                    style="outline: none; cursor: inherit;"></a>
                             </div>
@@ -328,7 +315,7 @@
                 <!-- product right -->
                 <div class="left-ads-display col-lg-8">
                     <div class="row">
-                        <div class="desc1-left col-md-6">
+                        <div class="desc1-left col-md-5">
                             <img src="{{ movie.poster.url }}" class="img-fluid" alt="">
                         </div>
                         <div class="desc1-right col-md-6 pl-lg-4">
@@ -422,9 +409,9 @@
                         <h3 class="shop-sing editContent" style="outline: none; cursor: inherit;">
                             За филма {{ movie.title }}</h3>
                         <p>
-                            <img src="bundles/images/about.jpg" class="img-fluid" alt="">
-                            <img src="bundles/images/admin.jpg" class="img-fluid" alt="">
-                            <img src="bundles/images/d1.jpg" class="img-fluid" alt="">
+                           {% for image in movie.movieshot_set.all %}
+                                <img src="{{ image.image.url }}" class=" img-movie-shots " alt="{{ image.description }}">
+                            {% endfor %}
                         </p>
                         <p class="editContent" style="outline: none; cursor: inherit;">
                             {{ movie.description }}
@@ -447,7 +434,7 @@
                             <div class="contact-single">
                                 <h3 class="editContent" style="outline: none; cursor: inherit;">
                                     <span class="sub-tittle editContent"
-                                          style="outline: none; cursor: inherit;">02</span>Добави коментар</h3>
+                                          style="outline: none; cursor: inherit;">01</span>Добави коментар</h3>
                                 <form action="#" method="get" class="mt-4">
                                     <div class="form-group editContent"
                                          style="outline: none; cursor: inherit;">
