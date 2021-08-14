@@ -24,11 +24,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
 
     'django_movie_project.movies',
     'ckeditor',
     'ckeditor_uploader',
-
+    'allauth',
+    'allauth.account',
 
 ]
 
@@ -77,6 +79,11 @@ DATABASES = {
     }
 }
 
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
@@ -121,7 +128,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
 
-
 CKEDITOR_CONFIGS = {
     'default': {
         'skin': 'moono',
@@ -158,7 +164,6 @@ CKEDITOR_CONFIGS = {
                 'Maximize',
                 'Youtube'
 
-
             ]},
         ],
         'toolbar': 'YourCustomToolbarConfig',  # put selected toolbar config here
@@ -171,7 +176,7 @@ CKEDITOR_CONFIGS = {
         # 'mathJaxLib': '//cdn.mathjax.org/mathjax/2.2-latest/MathJax.js?config=TeX-AMS_HTML',
         'tabSpaces': 4,
         'extraPlugins': ','.join([
-            'uploadimage', # the upload image feature
+            'uploadimage',  # the upload image feature
             # your extra plugins here
             'div',
             'autolink',
@@ -191,7 +196,10 @@ CKEDITOR_CONFIGS = {
 }
 
 
+SITE_ID = 1
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+

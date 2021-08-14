@@ -16,7 +16,7 @@ class MoviesView(View):
 class MovieDetailView(View):
     #  Пълно описание на филмите
 
-    def get(self, request, slug):
+    def get_movie(self, request, slug):
         movie = Movie.objects.get(url=slug)
         return render(request, 'movies/movie_detail.html', {'movie': movie})
 
@@ -24,7 +24,7 @@ class MovieDetailView(View):
 class AddReview(View):
     # Коментари към филма
 
-    def post(self, request, pk, ):
+    def post_review(self, request, pk, ):
         form = ReviewForm(request.POST)
         movie = Movie.objects.get(id=pk)
         if form.is_valid():
